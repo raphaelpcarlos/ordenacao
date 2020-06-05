@@ -42,6 +42,6 @@ public class InsertSort extends Ordenacao {
 
 	}
 	
-
+//Deu bom
 
 }
