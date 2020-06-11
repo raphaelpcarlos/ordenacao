@@ -1,47 +1,57 @@
+//Método utilizando o InsertSort
+
 package metodoOrdenacao;
 
 import java.util.ArrayList;
+import temporizador.Tempotizador;
 
 public class InsertSort extends Ordenacao {
 
-	private ArrayList<String> dadosAux = new ArrayList<String>();
+	Tempotizador temporizadorInsertSort = new Tempotizador();
 
-	public ArrayList<String> getDadosAux() {
-		return dadosAux;
+	// Metodo para retornar o tempo de ordenacao
+	public long retornaTempoOrdenacaoInsertSort() {
+
+		return temporizadorInsertSort.getTempoFinal();
 	}
 
-	public void setDadosAux(ArrayList<String> dadosAux) {
-		this.dadosAux = dadosAux;
-	}
-
-	//Metodo insert Sort
+	// Metodos insertSort
 	public void insertionSort(ArrayList<String> dados) {
 
-		for (int i = 1; i < dados.size(); i++) {
+		// Iniciar o temporizador
+		temporizadorInsertSort.iniciar();
 
-			String aux = dados.get(i);
-			
-			int j = i;
+		dadosAux.addAll(dados);
 
-			//utilizar o equals
-			while ( (j > 0) && aux.compareTo(dados.get(j) ) > 0  ) {
-				
-				
-				dadosAux.add(dados.get(j-1)) ;
-				
-				j-=1;
-				
+		int i, j;
+
+		String aux;
+
+		for (j = 1; j < dadosAux.size(); j++) {
+
+			aux = dadosAux.get(j);
+
+			i = j - 1;
+
+			while (i >= 0) {
+				if (aux.compareTo(dadosAux.get(i)) > 0) {
+					break;
+				}
+				dadosAux.set((i + 1), dadosAux.get(i));
+				i--;
 			}
-			
-			dadosAux.add(aux);
-			
+			dadosAux.set((i + 1), aux);
 
 		}
+
+		// finalizar o temporizador
+		temporizadorInsertSort.finalizar();
+
+		System.out.println("antigo" +dados.toString());
 		
 		System.out.println(dadosAux.toString());
 
-	}
-	
-//Deu bom
+		System.out.println("Tempo insert sort: " + retornaTempoOrdenacaoInsertSort());
 
+	}
 }

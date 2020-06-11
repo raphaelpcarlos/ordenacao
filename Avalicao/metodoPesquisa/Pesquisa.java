@@ -6,7 +6,8 @@ import javax.swing.JOptionPane;
 import dados.Dados;
 import temporizador.Tempotizador;
 
-public class Pesquisa {
+
+public class Pesquisa extends Pesquisas{
 	private Dados dados;
 
 	Tempotizador temporizadorPesquisa = new Tempotizador();
@@ -21,7 +22,7 @@ public class Pesquisa {
 	}
 
 	// Metodo para pesquisar
-	public void pesquisar(String dados) throws Exception{
+	public void pesquisar(String dados) throws Exception {
 
 		try {
 
@@ -29,12 +30,11 @@ public class Pesquisa {
 
 			JOptionPane.showMessageDialog(null, "Informação encontrada no arquivo= " + dados);
 
-
 		} catch (Exception e) {
-			
+
 			JOptionPane.showMessageDialog(null, "Elemento não encontrtado no arquivo");
 		}
-		
+
 		temporizadorPesquisa.finalizar();
 	}
 
@@ -44,18 +44,16 @@ public class Pesquisa {
 		return temporizadorPesquisa.getTempoFinal();
 	}
 
-	//Metodo para pesquisar 
+	// Metodo para pesquisar
 	public void pesquisar02(String dados, int b) {
-		
+
 		try {
-			
-			
-			JOptionPane.showMessageDialog(null, "Informação encontrada no arquivo= " +dados
-				+"\nNa posição: " +(b+1));
-			
-			
+
+			JOptionPane.showMessageDialog(null,
+					"Informação encontrada no arquivo= " + dados + "\nNa posição: " + (b + 1));
+
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null,"Elemento não encontrtado no arquivo");
+			JOptionPane.showMessageDialog(null, "Elemento não encontrtado no arquivo");
 		}
 	}
 }

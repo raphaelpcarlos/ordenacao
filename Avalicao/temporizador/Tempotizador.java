@@ -32,18 +32,19 @@ public class Tempotizador {
 		this.tempoFinal = tempoFinal;
 	}
 
+	// Metodo para iniciar a contagem
 	public void iniciar() {
-		
+
 		iniciar = System.currentTimeMillis();
 	}
-	
+
+	// Metodo para finalizar a contagem
 	public void finalizar() {
-		
+
 		finalizar = System.currentTimeMillis();
-		
-		//Calcular o tempo
+
+		// Calcular o tempo
 		this.tempoFinal = (this.finalizar - this.iniciar);
 	}
-	
-	
+
 }
