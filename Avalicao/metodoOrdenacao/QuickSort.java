@@ -13,31 +13,23 @@ public class QuickSort extends Ordenacao {
 
 		return temporizadorQuickSort.getTempoFinal();
 	}
-	
-	
-	
-	
+
 	public void qsor(ArrayList<String> dados) {
 
 		temporizadorQuickSort.iniciar();
-		
+
 		dadosAux.addAll(dados);
 
-
 		quicksort(getDadosAux(), 0, dados.size() - 1);
-		
-
-		System.out.println("Quick Sort: " + dadosAux);
 
 		temporizadorQuickSort.finalizar();
-		
-		System.out.println(retornaTempoOrdenacaoQuickSort());
+
 	}
 
 	private void quicksort(ArrayList<String> dados, int p, int r) {
-		
+
 		if (p < r) {
-			
+
 			int q = partition(dados, p, r);
 			if (q == r) {
 				q--;
@@ -60,15 +52,15 @@ public class QuickSort extends Ordenacao {
 				lo++;
 			}
 			if (lo < hi) {
-				
+
 				String t = list.get(lo);
-				
+
 				list.set(lo, list.get(hi));
-				
+
 				list.set(hi, t);
-				
+
 			} else
-				
+
 				return hi;
 		}
 	}

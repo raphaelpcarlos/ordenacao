@@ -2,58 +2,62 @@
 
 package metodoPesquisa;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import dados.Dados;
 import temporizador.Tempotizador;
 
+public class Pesquisa {
 
-public class Pesquisa extends Pesquisas{
-	private Dados dados;
+	Tempotizador temporizadorPesquisaNome = new Tempotizador();
 
-	Tempotizador temporizadorPesquisa = new Tempotizador();
+	Tempotizador temporizadorPesquisaIndice = new Tempotizador();
 
-	// metodos getters and Setters
-	public Dados getDados() {
-		return dados;
-	}
+	Tempotizador temporizadorPesquisaLinear = new Tempotizador();
 
-	public void setDados(Dados dados) {
-		this.dados = dados;
-	}
+	Dados informacao = new Dados();
 
-	// Metodo para pesquisar
-	public void pesquisar(String dados) throws Exception {
+	// Metodo para pesquisar pelo nome
+	public void pesquisar(ArrayList<String> informacao, String dados)
+			throws Exception, IndexOutOfBoundsException, NumberFormatException {
 
-		try {
+		if (informacao.contains(dados)) {
 
-			temporizadorPesquisa.iniciar();
+			JOptionPane.showMessageDialog(null, "Arquivo encontrado na posição: " + (informacao.indexOf(dados) + 1)
+					+ "\n\nTempo da pesquisa: " + temporizadorPesquisaIndice.getTempoFinal()+"Ms");
 
-			JOptionPane.showMessageDialog(null, "Informação encontrada no arquivo= " + dados);
+		} else {
+			JOptionPane.showMessageDialog(null, "Arquivo NÂO encontrado: ");
 
-		} catch (Exception e) {
-
-			JOptionPane.showMessageDialog(null, "Elemento não encontrtado no arquivo");
 		}
 
-		temporizadorPesquisa.finalizar();
+		temporizadorPesquisaNome.finalizar();
 	}
 
 	// Metodo para retornar o tempo de pesquisa
 	public long retornarTempoPesquisa() {
 
-		return temporizadorPesquisa.getTempoFinal();
+		return temporizadorPesquisaIndice.getTempoFinal();
+
 	}
 
-	// Metodo para pesquisar
-	public void pesquisar02(String dados, int b) {
+	// Metodo para pesquisar passando o indice
+	public void pesquisar(String info, int b) throws Exception, IndexOutOfBoundsException, NumberFormatException {
 
 		try {
 
-			JOptionPane.showMessageDialog(null,
-					"Informação encontrada no arquivo= " + dados + "\nNa posição: " + (b + 1));
+			temporizadorPesquisaIndice.iniciar();
 
-		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Informação encontrada no arquivo: " + info + "\nNa posição: " + (b));
+
+		} catch (IndexOutOfBoundsException e) {
+
 			JOptionPane.showMessageDialog(null, "Elemento não encontrtado no arquivo");
+
 		}
+
+		temporizadorPesquisaIndice.finalizar();
+
 	}
 }

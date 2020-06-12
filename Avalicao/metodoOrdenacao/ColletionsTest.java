@@ -5,7 +5,7 @@ import java.util.Collections;
 
 import temporizador.Tempotizador;
 
-public class Colletions extends Ordenacao{
+public class ColletionsTest extends Ordenacao{
 	
 	Tempotizador tempotizadorColletios = new Tempotizador();
 	
@@ -25,11 +25,8 @@ public class Colletions extends Ordenacao{
 		
 		Collections.sort(dadosAux);
 		
-		System.out.println("Ordendação do Collections "+dadosAux.toString());
-		
 		tempotizadorColletios.finalizar();
 		
-		System.out.println("Tempo : " +retornaTempoOrdenacaoCollectio());
 	}
 	
 }

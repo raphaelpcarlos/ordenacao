@@ -47,11 +47,5 @@ public class InsertSort extends Ordenacao {
 		// finalizar o temporizador
 		temporizadorInsertSort.finalizar();
 
-		System.out.println("antigo" +dados.toString());
-		
-		System.out.println(dadosAux.toString());
-
-		System.out.println("Tempo insert sort: " + retornaTempoOrdenacaoInsertSort());
-
 	}
 }

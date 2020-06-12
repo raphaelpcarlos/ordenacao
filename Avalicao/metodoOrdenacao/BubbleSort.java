@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 public class BubbleSort extends Ordenacao {
 
+	
+	
+	
 	public void bubbleSort(ArrayList<String> dados) {
 
+		
 		dadosAux.addAll(dados);
 
-		System.out.println("antigo" + dadosAux.toString());
 
 		for (int j = 0; j < dadosAux.size(); j++) {
 			
@@ -27,7 +30,6 @@ public class BubbleSort extends Ordenacao {
 			}
 		}
 
-		System.out.println("Buble Sort" + dadosAux.toString());
 	}
 
 }
